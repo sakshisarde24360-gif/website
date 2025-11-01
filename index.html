@@ -1,0 +1,248 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Security Awareness</title>
+  <style>
+    /* --- Global Styles --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f7f9fb;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0a3d62;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      background-color: #1e3799;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffdd59;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #0a3d62;
+      border-left: 5px solid #1e3799;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* --- Homepage --- */
+    #home {
+      text-align: center;
+      padding-top: 50px;
+      padding-bottom: 60px;
+    }
+
+    #home p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 20px auto;
+      color: #555;
+    }
+
+    /* --- Query Form --- */
+    #query-form {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #1e3799;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin-top: 15px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0c2461;
+    }
+
+    /* --- Solved Issues --- */
+    #solutions {
+      margin-top: 30px;
+    }
+
+    .issue {
+      background-color: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid #1e3799;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .issue h3 {
+      color: #0a3d62;
+    }
+
+    .issue p {
+      color: #555;
+    }
+
+    footer {
+      background-color: #0a3d62;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Cyber Security Awareness</h1>
+    <p>Stay Safe | Stay Secure | Stay Smart</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#form">Submit Query</a>
+    <a href="#solutions">Solved Issues</a>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Welcome to Cyber Security Awareness</h2>
+    <p>
+      This platform helps you understand cyber threats and get expert guidance.
+      Submit your cyber security queries below and learn from solved issues to
+      enhance your digital safety knowledge.
+    </p>
+  </section>
+
+  <!-- Query Form Section -->
+  <section id="form">
+    <h2>Submit Your Cyber Security Query</h2>
+    <div id="query-form">
+      <form id="userQueryForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="query">Describe Your Cyber Security Issue:</label>
+        <textarea id="query" name="query" rows="5" placeholder="Type your issue here..." required></textarea>
+
+        <button type="submit">Submit Query</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Solved Issues Section -->
+  <section id="solutions">
+    <h2>Community Queries & Solutions</h2>
+
+    <div id="issueList">
+      <div class="issue">
+        <h3>Phishing Email Scam</h3>
+        <p><strong>Query:</strong> I got an email from an unknown address asking for my bank details.</p>
+        <p><strong>Solution:</strong> Do not click on any links or share information. Always verify the sender and report phishing attempts to your email provider.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cyber Security Awareness | Protecting People Online</p>
+  </footer>
+
+  <script>
+    // JavaScript to handle form submission and add query dynamically
+    const form = document.getElementById('userQueryForm');
+    const issueList = document.getElementById('issueList');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const query = document.getElementById('query').value.trim();
+
+      if (name && email && query) {
+        // Create a new issue block
+        const issueDiv = document.createElement('div');
+        issueDiv.classList.add('issue');
+        issueDiv.innerHTML = `
+          <h3>${name}'s Query</h3>
+          <p><strong>Query:</strong> ${query}</p>
+          <p><strong>Suggested Solution:</strong> Thank you for your question, ${name}. Our team recommends checking for phishing links, using strong passwords, and enabling two-factor authentication. We will review your issue and respond soon.</p>
+        `;
+
+        // Add new issue to the top of the list
+        issueList.prepend(issueDiv);
+
+        // Clear the form
+        form.reset();
+        alert("Your query has been submitted successfully!");
+      }
+    });
+  </script>
+
+</body>
+</html>
